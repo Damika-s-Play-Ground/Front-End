@@ -32,5 +32,8 @@ $("#app .sidebar ul li a").click(function () {
         case "Place Orders":
             $("#place-orders").show();
             break;
+        case "Search Orders":
+            $("#search-orders").show();
+            break;
     }
 });
