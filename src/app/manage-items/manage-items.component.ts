@@ -1,7 +1,4 @@
-/**
- * @author : Ranjith Suranga <suranga@ijse.lk>
- * @since : 11/26/20
- **/
+
 
 import manageItems from './manage-items.component.html';
 import style from './manage-items.component.scss';
@@ -16,7 +13,6 @@ var html = '<style>' + style + '</style>';
 $("#dashboard").append(html);
 
 async function loadAllItems(){
-
     let items = await getAllItems();
 
     for (const item of items) {
@@ -24,8 +20,8 @@ async function loadAllItems(){
             <tr>
                 <td>${item.code}</td>
                 <td>${item.description}</td>
-                <td>${item.qtyOnHand}</td>
                 <td>${item.unitPrice.toFixed(2)}</td>
+                <td>${item.qtyOnHand}</td>
                 <td><i class="fas fa-trash"></i></td>
             </tr>
         `);
