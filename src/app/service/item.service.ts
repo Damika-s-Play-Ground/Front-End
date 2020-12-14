@@ -1,32 +1,44 @@
 import { Item } from "../model/item";
 
-let items: Array<Item> = [];
 
-export function getAllItems(): Promise<Array<Item>> {
-    //To-do: retrieve data from backend and fill the customers array
+let items: Array<Item> = [];
+let loaded = false;
+
+/* export function getAllItmes(): Promise<Array<Item>> {
+
     return new Promise((resolve, reject) => {
 
+        if (!loaded) {
 
-        //(1) Initiate a XMLHttpRequest
-        let http = new XMLHttpRequest();
+            $.ajax({
+                method: "GET",
+                url: 'http://localhost:8080/app/items'
+            }).then((data)=>{
+                items = data;
+                loaded = true;
+                resolve(items);
+            }).fail(()=>{
+                reject();
+            })
 
-        //(2)Setting up the call back function
-        http.onreadystatechange = function () {
-            if (http.readyState === 4) {
-                console.log("Items awa")
-                resolve(items= JSON.parse(http.responseText));
-            }
+        }else{
+            resolve(items);
         }
 
-        //(3) Let's open the request
-        http.open('GET', 'http://localhost:8080/app/items', true)//Method type,address,asynchronus status
+    });
+} */
+export function deleteItem(code: string): Promise<void>{
+    return new Promise((resolve, reject)=>{
 
-
-        //(4) If we have to set headers
-
-        //(5)
-        http.send();
+        $.ajax({
+            method: "DELETE",
+            url: `http://localhost:8080/app/items?code=${code}`
+        }).then(()=>{
+            items.splice(items.findIndex((elm)=>elm.code===code),1);
+            resolve(); 
+        }).catch(()=>{
+            reject();
+        })
 
     });
 }
-

@@ -1,4 +1,4 @@
-
+/* 
 
 import manageItems from './manage-items.component.html';
 import style from './manage-items.component.scss';
@@ -36,3 +36,6 @@ async function loadAllItems(){
 
 loadAllItems();
 
+
+
+ */
