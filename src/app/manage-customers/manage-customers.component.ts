@@ -77,6 +77,7 @@ async function loadAllCustomers() {
                 <td><i class="fas fa-trash"></i></td>
             </tr>
         `);
+       
     }
 
     dataTable = ($("#tbl-customers") as any).DataTable({
