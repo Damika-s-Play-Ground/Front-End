@@ -19,12 +19,13 @@ let cart: any = null;
 
 $("#btn-submit-to-cart").click(async ()=>{
     let orderId = <string>$("#txt-order-id").val();
-    let itemCode = <string>$("#txt-code").val();
-    let qty = <string>$("#txt-qty").val();
-    let unitPrice = <string>$("#unitprice").val();
+    let itemCode = <string>$("#txt-Code").val();
+    let qty = <string>$("#txt-qty1").val();
+    let unitPrice = <string>$("#txt-unitprice1").val();
 
+    console.log(qty,unitPrice)
     
-
+    
     if (cart) {
         ($("#tbl-cart") as any).DataTable().destroy();
         $("#tbl-cart tbody tr").remove();
@@ -47,7 +48,7 @@ $("#btn-submit-to-cart").click(async ()=>{
             "pageLength": 5,
             "ordering": false,
         });
-    
+        console.log()
         // cart.page(Math.ceil(customers.length / 5) - 1).draw(false);
       
     
