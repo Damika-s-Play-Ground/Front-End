@@ -15,3 +15,40 @@ $("app-place-orders").replaceWith('<div id="place-orders">' + placeOrders + '</d
 var html = '<style>' + style + '</style>';
 $("#dashboard").append(html);
 
+let cart: any = null;
+
+$("#btn-submit-to-cart").click(async ()=>{
+    let orderId = <string>$("#txt-order-id").val();
+    let itemCode = <string>$("#txt-code").val();
+    let qty = <string>$("#txt-qty").val();
+    let unitPrice = <string>$("#unitprice").val();
+
+    
+
+    if (cart) {
+        ($("#tbl-cart") as any).DataTable().destroy();
+        $("#tbl-cart tbody tr").remove();
+    }
+
+    
+        $("#tbl-cart tbody").append(`
+            <tr>
+                <td>${orderId}</td>
+                <td>${itemCode}</td>
+                <td>${qty}</td>
+                <td>${unitPrice}</td>
+                <td><i class="fas fa-trash"></i></td>
+            </tr>
+        `);
+        cart = ($("#tbl-cart") as any).DataTable({
+            "info": false,
+            "searching": false,
+            "lengthChange": false,
+            "pageLength": 5,
+            "ordering": false,
+        });
+    
+        // cart.page(Math.ceil(customers.length / 5) - 1).draw(false);
+      
+    
+});

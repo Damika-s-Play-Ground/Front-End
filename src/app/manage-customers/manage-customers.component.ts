@@ -98,21 +98,11 @@ $("#btn-save").click(async () => {
     let id = <string>$("#txt-id").val();
     let name = <string>$("#txt-name").val();
     let address = <string>$("#txt-address").val();
-    console.log(name);
     /* Font-end validation */
     if (!id.match(/^C\d{3}$/) || name.trim().length === 0 || address.trim().length === 0) {
         alert("Invalid cutomer infromation");
         return;
     }
-    
-        
-        /* alert("Are you sure to update this customer");
-        try {
-            
-        } catch (error) {
-            alert("Failed to update the customer");
-        } */
-    
         try {
             await saveCustomer(new Customer(id, name, address));
             alert("Customer Saved");

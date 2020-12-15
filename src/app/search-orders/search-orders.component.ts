@@ -8,6 +8,7 @@ import '../../../node_modules/admin-lte/plugins/datatables-responsive/js/dataTab
 import '../../../node_modules/flot/dist/es5/jquery.flot.js';
 import '../../../node_modules/flot/source/jquery.flot.resize.js';
 import '../../../node_modules/flot/source/jquery.flot.categories.js';
+
 //import { deleteCustomer, getAllCustomers, saveCustomer, updateCustomer } from '../service/customer.service';
 import { SearchOrder } from '../model/search-order';
 import { data } from 'jquery';
